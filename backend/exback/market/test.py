@@ -13,4 +13,4 @@ for i in arr:
     if i['side'] == 'Buy':
         arr_buy.append(i)
         
-print(arr_buy)
+# print(arr_buy)

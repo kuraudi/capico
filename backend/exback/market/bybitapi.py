@@ -13,16 +13,10 @@ import aiohttp
 
 load_dotenv()
 API_KEY = "6de2833e-d048-4b60-982b-4d7e17860376"
-BYBIT_API_URL = "https://api.bybit.com/v5/market/tickers?category=spot"
-CMC_MAP_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map"
-CMC_INFO_URL = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info"
-
 CMC_API_KEY = os.getenv('CMC_API_KEY')
 
 # Создаем сессию для реальной торговли
 session = HTTP(testnet=False)
-
-
 BYBIT_API_URL = "https://api.bybit.com/v5/market/tickers"
 
 CMC_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info"
@@ -31,14 +25,11 @@ HEADERS = {
     "X-CMC_PRO_API_KEY": CMC_API_KEY,
 }
 
-
-
 def get_bybit_symbols(limit=20):
     """Получает список тикеров с Bybit, оставляя только монеты с "USDT" и убирая "USDT" в конце."""
     try:
         response = requests.get(BYBIT_API_URL)
         data = response.json()
-        
         if data["retCode"] == 0:
             symbols = [coin["symbol"][:-4] for coin in data["result"]["list"] if coin["symbol"].endswith("USDT")]
             return symbols[:limit]  # Ограничиваем список 30 монетами
@@ -161,4 +152,44 @@ def get_orderbook_history(request):
         
 
     
+def get_prices_user_coins(arr):
+    """Получает цены монет с Bybit."""
     
+    symbols = [i['symbol']+'USDT' for i in arr]
+    response = session.get_tickers(category="spot", symbol=None)
+    tickers = response["result"]["list"]
+    coin_prices = {t['symbol']:t['lastPrice'] for t in tickers if t['symbol'] in symbols} 
+    price = 0
+    for coin in arr:
+        for key,value in coin_prices.items():
+            if key == coin['symbol']+'USDT':
+                price+= float(value) * coin['count']
+    return price
+            
+            
+        
+       
+        # for t in tickers:
+        #     if t['symbol'] == 'BTCUSDT':
+                
+                
+                
+                
+                
+                
+        # # Фильтруем только нужные тикеры
+        # filtered_tickers = {
+        #      t["symbol"].replace("USDT", ""): {
+        #         "price": t["lastPrice"],
+        #         "price24hPcnt": t["price24hPcnt"],
+        #         "turnover24h": t["turnover24h"],
+        #         "volume24h": t["volume24h"],
+        #         "lowPrice24h": t["lowPrice24h"],
+        #         "highPrice24h": t["highPrice24h"],
+        #     } for t in tickers if t["symbol"] in symbols
+        # }
+        # if filtered_tickers:
+        #     print(filtered_tickers)
+        #     return filtered_tickers
+        # print(tickers)
+    return {}

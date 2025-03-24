@@ -15,4 +15,5 @@ urlpatterns = [
     path('user-balances',views.get_user_balances),
     path('orderbook',bybitapi.get_orderbook_of_coin),
     path('orderbook/history',bybitapi.get_orderbook_history),
+    path('test',views.getTotalBalance),
 ]

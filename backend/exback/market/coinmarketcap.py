@@ -2,7 +2,6 @@ import requests
 from .bybitapi import get_bybit_symbols
 
 API_KEY = "6de2833e-d048-4b60-982b-4d7e17860376"
-BYBIT_API_URL = "https://api.bybit.com/v5/market/tickers?category=spot"
 CMC_MAP_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map"
 CMC_INFO_URL = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info"
 

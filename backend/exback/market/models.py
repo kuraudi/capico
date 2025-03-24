@@ -23,6 +23,12 @@ class SpotBalance(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.coin.symbol}: {self.total_balance}"
+
+class TotalBalance(models.Model):
+    user = models.ForeignKey(BaseUser,on_delete=models.CASCADE)
+    totalSpotBalance = models.DecimalField(max_digits=20,decimal_places=8, default=0)
+
+        
     
 # class FutureBalance(models.Model):
 #     user = models.ForeignKey(BaseUser, on_delete=models.CASCADE)

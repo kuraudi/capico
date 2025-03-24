@@ -4,8 +4,10 @@ from .models import Coin,SpotBalance
 from rest_framework.decorators import api_view
 from .serializers import CoinSerializer
 from pybit.unified_trading import HTTP
+from .bybitapi import get_prices_user_coins
 from .coinmarketcap import get_coins_info,get_filtered_coins,get_bybit_symbols
 from . import bybitapi
+from userauth.models import BaseUser
 
 session = HTTP(testnet=False)
 
@@ -61,7 +63,35 @@ def get_user_balances(request):
         
     return Response(balances)
 
-
+@api_view(['POST'])
+def spot_buy_coin(request):
+    # symbol = 'BTC'
+    coin_name = request.data['params']['symbol']
+    coin_price = request.data['params']['price']
+    
+    response = session.get_orderbook(category="linear", symbol=coin_name)
+    orderbook_sell = response['result']['a']
+    for order in orderbook_sell:
+        print(order)
+        
+@api_view(['GET'])
+def getTotalBalance(request):
+    user_id = BaseUser.objects.get(email=request.user).id
+        
+    coins = SpotBalance.objects.values('user','coin','total_balance')
+    
+    coin_counts = [{'symbol':Coin.objects.get(id=i['coin']).symbol,'count':int(i['total_balance'])} for i in coins if i['user'] == user_id]
+    
+    if coin_counts:
+        total_balance = get_prices_user_coins(coin_counts)
+        return Response({'message':total_balance},status=200)
+    
+    return Response({'message':0},status=200)
+        
+    
+    
+    
+    
 
 
 
