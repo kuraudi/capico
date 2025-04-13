@@ -13,16 +13,10 @@ import aiohttp
 
 load_dotenv()
 API_KEY = "6de2833e-d048-4b60-982b-4d7e17860376"
-BYBIT_API_URL = "https://api.bybit.com/v5/market/tickers?category=spot"
-CMC_MAP_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/map"
-CMC_INFO_URL = "https://pro-api.coinmarketcap.com/v2/cryptocurrency/info"
-
 CMC_API_KEY = os.getenv('CMC_API_KEY')
 
 # Создаем сессию для реальной торговли
 session = HTTP(testnet=False)
-
-
 BYBIT_API_URL = "https://api.bybit.com/v5/market/tickers"
 
 CMC_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info"
@@ -31,14 +25,11 @@ HEADERS = {
     "X-CMC_PRO_API_KEY": CMC_API_KEY,
 }
 
-
-
-def get_bybit_symbols(limit=20):
+def get_bybit_symbols(limit=40):
     """Получает список тикеров с Bybit, оставляя только монеты с "USDT" и убирая "USDT" в конце."""
     try:
-        response = requests.get(BYBIT_API_URL)
-        data = response.json()
-        
+        data = session.get_tickers(category="spot", symbol=None)
+        # data = response.json()
         if data["retCode"] == 0:
             symbols = [coin["symbol"][:-4] for coin in data["result"]["list"] if coin["symbol"].endswith("USDT")]
             return symbols[:limit]  # Ограничиваем список 30 монетами
@@ -141,6 +132,7 @@ def get_orderbook_of_coin(request):
     response = session.get_orderbook(category="linear", symbol=coin_name)
     orderbook_buy = response['result']['b']
     orderbook_sell = response['result']['a']
+    print(orderbook_buy)
     
     return JsonResponse({'orderbook_buy':orderbook_buy,'orderbook_sell':orderbook_sell},status=200)
 
@@ -161,4 +153,54 @@ def get_orderbook_history(request):
         
 
     
-    
+def get_prices_user_coins(arr):
+    """Получает цены монет с Bybit."""
+    print('arr',arr)
+    try:
+        symbols = [i['symbol']+'USDT' for i in arr]
+        response = session.get_tickers(category="spot", symbol=None)
+        tickers = response["result"]["list"]
+        coin_prices = {t['symbol']:t['lastPrice'] for t in tickers if t['symbol'] in symbols} 
+        total_balance_usd = sum(
+            float(coin_prices.get(coin['symbol'] + 'USDT',0)) * coin['count']  for coin in arr
+        )
+                    
+        btcPrice = session.get_tickers(
+        category="spot",
+        symbol="BTCUSDT",
+    )['result']['list'][0]['lastPrice']
+        
+
+        total_balance_btc = total_balance_usd/float(btcPrice)
+        print('1',total_balance_btc,total_balance_usd)
+    except Exception as e:
+        return None,None
+    return [total_balance_usd,total_balance_btc]
+            
+            
+        
+       
+        # for t in tickers:
+        #     if t['symbol'] == 'BTCUSDT':
+                
+                
+                
+                
+                
+                
+        # # Фильтруем только нужные тикеры
+        # filtered_tickers = {
+        #      t["symbol"].replace("USDT", ""): {
+        #         "price": t["lastPrice"],
+        #         "price24hPcnt": t["price24hPcnt"],
+        #         "turnover24h": t["turnover24h"],
+        #         "volume24h": t["volume24h"],
+        #         "lowPrice24h": t["lowPrice24h"],
+        #         "highPrice24h": t["highPrice24h"],
+        #     } for t in tickers if t["symbol"] in symbols
+        # }
+        # if filtered_tickers:
+        #     print(filtered_tickers)
+        #     return filtered_tickers
+        # print(tickers)
+    return {}

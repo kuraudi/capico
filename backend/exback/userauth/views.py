@@ -39,7 +39,7 @@ def getData(request):
     user.save()
 
     # Формируем ответ
-    response = Response({'message': 'User successfully registered', 'role': user.role, 'access': access}, status=201)
+    response = Response({'message': 'User successfully registered', 'role': user.role, 'access': access,'email':user.email}, status=201)
     
     # Устанавливаем refresh-токен в куки
     response.set_cookie(

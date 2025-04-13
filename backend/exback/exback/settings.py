@@ -16,11 +16,11 @@ SECRET_KEY = 'django-insecure-8v==6)j5ej-g)_4y7(zq8g+fd$ce!q$2&)2^=kayoqxyt*ccfd
 DEBUG = True
 
 ALLOWED_HOSTS = []
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 # Папка для хранения статических файлов
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 # Для продакшн среды можно указать директорию для сбора статических файлов
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'market',
     'userauth',
+    'exback',
     'rest_framework_simplejwt',
+    'django_celery_beat',
 ]
 
 
@@ -176,4 +178,19 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 AUTH_USER_MODEL = 'userauth.BaseUser'
+
+
+# settings.py
+
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+
+
+
 

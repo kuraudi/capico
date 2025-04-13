@@ -29,7 +29,7 @@ def fetch_crypto_price():
 def get_crypto_price(request):
     fetch_crypto_price()
     saved_data = redis_client.get("BTCUSD")
-    print(saved_data)
+    # print(saved_data)
     if saved_data:
         return JsonResponse(json.loads(saved_data))  # Возвращаем JSON-ответ
     return JsonResponse({"error": "Price not found"}, status=404) 

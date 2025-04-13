@@ -25,6 +25,8 @@ def update_prices_coins(request):
 
 def get_prices_from_redis(request):
     """Возвращает последние цены монет из Redis в виде массива."""
+        
+    
     
     update_prices_coins(request)
     data = redis_client.get("crypto_prices")
