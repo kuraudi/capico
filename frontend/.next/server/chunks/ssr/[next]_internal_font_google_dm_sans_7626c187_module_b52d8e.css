@@ -1,0 +1,20 @@
+/* [next]/internal/font/google/dm_sans_7626c187.module.css [app-client] (css) */
+@font-face {
+  font-family: DM Sans Fallback;
+  src: local(Arial);
+  ascent-override: 94.9%;
+  descent-override: 29.66%;
+  line-gap-override: 0.0%;
+  size-adjust: 104.53%;
+}
+
+.dm_sans_7626c187-module__B9LNQG__className {
+  font-family: DM Sans, DM Sans Fallback;
+  font-style: normal;
+}
+
+.dm_sans_7626c187-module__B9LNQG__variable {
+  --font-geist-DM-Sans: "DM Sans", "DM Sans Fallback";
+}
+
+/*# sourceMappingURL=%5Bnext%5D_internal_font_google_dm_sans_7626c187_module_b52d8e.css.map*/

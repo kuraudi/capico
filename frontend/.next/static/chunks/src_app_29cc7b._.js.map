@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/askeroff/Desktop/vscode/exchange/frontend/src/app/components/ui/CustomImage.tsx"],"sourcesContent":["import Image from \"next/image\";\r\n\r\ninterface CustomImageProps {\r\n  src: string;\r\n  alt: string;\r\n  width: number;\r\n  height: number;\r\n  className?: string;\r\n}\r\n\r\nconst CustomImage = ({ src, alt, width, height, className }: CustomImageProps) => {\r\n  return (\r\n    <Image\r\n      src={src}\r\n      alt={alt}\r\n      width={width}\r\n      height={height}\r\n      className={className}\r\n    />\r\n  );\r\n};\r\n\r\nexport default CustomImage;\r\n"],"names":[],"mappings":";;;;AAAA;;;AAUA,MAAM,cAAc,CAAC,EAAE,GAAG,EAAE,GAAG,EAAE,KAAK,EAAE,MAAM,EAAE,SAAS,EAAoB;IAC3E,qBACE,6LAAC,gIAAA,CAAA,UAAK;QACJ,KAAK;QACL,KAAK;QACL,OAAO;QACP,QAAQ;QACR,WAAW;;;;;;AAGjB;KAVM;uCAYS"}},
+    {"offset": {"line": 34, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

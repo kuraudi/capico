@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Nekst-Black"; /* Название шрифта */
+  src: url("/frontend/public/fonts/nekst/Nekst-Black.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nekst-Thin"; /* Название шрифта */
+  src: url("/frontend/public/fonts/nekst/Nekst-Thin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nekst-Bold"; /* Название шрифта */
+  src: url("/fonts/nekst/Nekst-Bold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nekst-Light"; /* Название шрифта */
+  src: url("/fonts/nekst/Nekst-Light.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nekst-Medium"; /* Название шрифта */
+  src: url("/fonts/nekst/Nekst-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nekst-Regular"; /* Название шрифта */
+  src: url("/fonts/nekst/Nekst-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nekst-Semibold"; /* Название шрифта */
+  src: url("/fonts/nekst/Nekst-SemiBold.woff2") format("woff2");
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  /* height: 100%; */
+  /* overflow-y: scroll; */
+}
+body {
+  box-sizing: border-box;
+  /* min-height: 100%; */
+  /* overflow-y: scroll; */
+}
+
+/* Общий стиль скроллбара */
+::-webkit-scrollbar {
+  width: 8px; /* Ширина скроллбара */
+}
+
+/* Дорожка (фон скроллбара) */
+::-webkit-scrollbar-track {
+  background: #121212; /* Тёмный фон */
+  border-radius: 10px;
+}
+
+/* Ползунок (сам скролл) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #3f3f40,
+    #bfbbc4
+  ); /* Градиентный скролл */
+  border-radius: 10px;
+}
+
+/* При наведении на скролл */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8e2de2, #5f29b7); /* Обратный градиент */
+}
+
+/* Скролл для Firefox */
+* {
+  scrollbar-width: thin; /* Тонкий скролл */
+  scrollbar-color: #403f40 #121212; /* Цвет ползунка и фона */
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  /* max-height: 200px; */
+  /* height: 10000px; */
+  /* height: auto; */
+  background-color: black;
+  /* min-height: 13500px; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.container {
+  margin: auto;
+  /* height: auto; */
+  max-width: 1600px;
+}
+
+* {
+  color: white;
+}
+
+/* Убираем стрелки для input[type="number"] */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

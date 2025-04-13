@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[next]/internal/font/google/dm_sans_f707bb3c.module.css"],"sourcesContent":["@font-face {\n    font-family: 'DM Sans Fallback';\n    src: local(\"Arial\");\n    ascent-override: 94.90%;\ndescent-override: 29.66%;\nline-gap-override: 0.00%;\nsize-adjust: 104.53%;\n\n}\n.className {\n    font-family: 'DM Sans', 'DM Sans Fallback';\n    font-style: normal;\n\n}\n.variable {\n    --font-geist-DM_-Sans: 'DM Sans', 'DM Sans Fallback';\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;;AASA;;;;;AAKA","ignoreList":[0]}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

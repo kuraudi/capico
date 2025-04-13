@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/askeroff/Desktop/vscode/exchange/frontend/src/app/layout.tsx"],"sourcesContent":["\"use client\";\nimport \"./globals.css\";\nimport \"./resets.css\";\nimport { RoleProvider } from \"./RoleContext\";\n\nexport default function RootLayout({\n  children,\n}: Readonly<{\n  children: React.ReactNode;\n}>) {\n  return (\n    <html lang=\"en\">\n      <head></head>\n      <RoleProvider>\n        <body>{children}</body>\n      </RoleProvider>\n    </html>\n  );\n}\n"],"names":[],"mappings":";;;;;;;;;AAAA;;;;;AAKe,SAAS,WAAW,EACjC,QAAQ,EAGR;IACA,qBACE,8OAAC;QAAK,MAAK;;0BACT,8OAAC;;;;;0BACD,8OAAC;0BACC,cAAA,8OAAC;8BAAM;;;;;;;;;;;;;;;;;AAIf"}},
+    {"offset": {"line": 58, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

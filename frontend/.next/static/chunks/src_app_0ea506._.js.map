@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file://C%3A/Users/askeroff/Desktop/vscode/exchange/frontend/src/app/components/common/HeaderNav.tsx"],"sourcesContent":["\"use client\";\r\nimport React from \"react\";\r\n\r\nexport default function HeaderNav() {\r\n  return (\r\n    <div className=\"wrapper\">\r\n      <div className=\"w-full h-[90px]\">\r\n        <div></div>\r\n        <div>this.state.first</div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;;AAGe,SAAS;IACtB,qBACE,6LAAC;QAAI,WAAU;kBACb,cAAA,6LAAC;YAAI,WAAU;;8BACb,6LAAC;;;;;8BACD,6LAAC;8BAAI;;;;;;;;;;;;;;;;;AAIb;KATwB"}},
+    {"offset": {"line": 49, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

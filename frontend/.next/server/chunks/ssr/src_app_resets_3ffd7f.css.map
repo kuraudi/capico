@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/src/app/resets.css"],"sourcesContent":["* {\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\r\n}\r\n*,\r\n*:before,\r\n*:after {\r\n  -moz-box-sizing: border-box;\r\n  -webkit-box-sizing: border-box;\r\n  box-sizing: border-box;\r\n}\r\n:focus,\r\n:active {\r\n  outline: none;\r\n}\r\na:focus,\r\na:active {\r\n  outline: none;\r\n}\r\nnav,\r\nfooter,\r\nheader,\r\naside {\r\n  display: block;\r\n}\r\nhtml,\r\nbody {\r\n  height: 100%;\r\n  width: 100%;\r\n  font-size: 100%;\r\n  line-height: 1;\r\n  font-size: 14px;\r\n  -ms-text-size-adjust: 100%;\r\n  -moz-text-size-adjust: 100%;\r\n  -webkit-text-size-adjust: 100%;\r\n}\r\ninput,\r\nbutton,\r\ntextarea {\r\n  font-family: inherit;\r\n}\r\ninput::-ms-clear {\r\n  display: none;\r\n}\r\nbutton {\r\n  cursor: pointer;\r\n  background: none;\r\n}\r\nbutton::-moz-focus-inner {\r\n  padding: 0;\r\n  border: 0;\r\n}\r\na,\r\na:visited {\r\n  text-decoration: none;\r\n}\r\na:hover {\r\n  text-decoration: none;\r\n}\r\nul li {\r\n  list-style: none;\r\n}\r\nimg {\r\n  vertical-align: top;\r\n}\r\na {\r\n  color: inherit;\r\n}\r\n\r\nbody {\r\n  overflow: hidden;\r\n  min-height: 100vh;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;AAKA;;;;;;AAOA;;;;AAIA;;;;AAIA;;;;AAMA;;;;;;;;;;;AAWA;;;;AAKA;;;;AAGA;;;;;AAIA;;;;;AAIA;;;;AAIA;;;;AAGA;;;;AAGA;;;;AAGA;;;;AAIA"}},
+    {"offset": {"line": 78, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
