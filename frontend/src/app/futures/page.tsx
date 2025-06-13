@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const TradingViewWidget = ({ symbol }: { symbol: string }) => {
+const TradingViewWidget = (symbol) => {
   const [widgetUrl, setWidgetUrl] = useState("");
 
   useEffect(() => {
